@@ -1,6 +1,4 @@
-# Player Tracking in Sports Videos — DS5216 Programming Assignment 02
-
-This repo contains the deliverables for **Player Tracking in Sports Videos**.
+# DS5216 Programming Assignment 02
 
 ## Structure
 ```
