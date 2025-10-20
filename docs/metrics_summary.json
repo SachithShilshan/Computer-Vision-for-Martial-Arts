@@ -1,0 +1,9 @@
+{
+  "precision": [],
+  "recall": [],
+  "map": [],
+  "accuracy": [],
+  "loss": [],
+  "val_loss": [],
+  "f1": []
+}
