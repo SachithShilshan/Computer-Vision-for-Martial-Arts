@@ -37,16 +37,9 @@ This project analyzes martial-arts footage to track two fighters, draw pose skel
 
 ## 2. Dataset Preparation
 
-* Frames auto-extracted from the raw videos (≈ **20 frames/video**).
-* **Player detection dataset** (YOLO format):
+This project uses a **custom dataset created from 6 martial arts video clips** featuring **karate, boxing, kickboxing,..** with two fighters per match. The videos include a mix of movement dynamics 
 
-  * Classes: `person` only; split **80/20** train/val.
-* **Pose dataset** (YOLO-pose format):
-
-  * Pseudo-labels generated with **YOLOv8x-pose** on extracted frames.
-  * `kpt_shape: [17, 3]` → 17 COCO keypoints with (x, y, visibility).
-  * Split **80/20** train/val.
-* No manual labeling was required.
+Player detection dataset and Pose dataset Split 80/20 for train/val.
 
 Folder layout (under `MyDrive/DS5216`):
 
@@ -77,11 +70,9 @@ exp_pose_train/, exp_pose_eval/
 
 ### 3.2 Pose (Keypoint) Detection (YOLOv8-pose)
 
-* **Annotator (pretrained):** `yolov8x-pose.pt` — used only to generate pseudo keypoint labels.
-* **Fine-tuned models:**
+* **pretrained:** `yolov8s-pose.pt` 
+* **Fine-tuned models:** `yolov8s-pose.pt` 
 
-  * `yolov8n-pose.pt` (earlier run)
-  * `yolov8s-pose.pt` (**latest, recommended**)
 * Metrics: **OKS mAP@50-95** (primary), **OKS mAP@50**, plus precision/recall when available.
 
 ### 3.3 Action Likelihoods & Short-term Pose Prediction
@@ -105,12 +96,17 @@ exp_pose_train/, exp_pose_eval/
 
 ### 4.1 Player Detection Results
 
-**Validation:** 60 images, 243 persons.
+
 
 | Weights                        |  mAP50-95 |     mAP50 | Precision |    Recall |
 | ------------------------------ | --------: | --------: | --------: | --------: |
 | `yolov8n.pt` (pretrained)      | **0.744** |     0.927 |     0.920 |     0.807 |
 | `best.pt` (fine-tuned yolov8n) | **0.848** | **0.977** |     0.924 | **0.975** |
+
+Output table
+
+<img width="709" height="153" alt="image" src="https://github.com/user-attachments/assets/6954086d-9f13-474d-9807-20432f31f9f8" />
+
 
 **Key takeaways**
 
@@ -121,50 +117,54 @@ exp_pose_train/, exp_pose_eval/
 
 ### 4.2 Pose (Keypoint) Detection Results
 
-#### (A) Latest: YOLOv8s-pose (recommended)
+#### (A) Latest: YOLOv8s-pose
 
-**Validation:** 50 images.
 
 | Model                    | mAP50-95 (OKS) | mAP50 (OKS) | Precision |    Recall |
 | ------------------------ | -------------: | ----------: | --------: | --------: |
 | `y8s_pose_pretrained`    |          0.204 |       0.227 |     0.254 |     0.500 |
 | **`y8s_pose_finetuned`** |      **0.522** |   **0.613** | **0.557** | **0.660** |
 
-**Gain:** **+31.8 pts** OKS mAP50-95 after fine-tuning on domain pseudo-labels.
+Output table
 
-#### (B) Earlier: YOLOv8n-pose (for reference)
+<img width="850" height="148" alt="image" src="https://github.com/user-attachments/assets/c2265bb3-ea6c-43b1-9f22-013e190e8850" />
 
-| Model                                 | mAP50-95 (OKS) | mAP50 (OKS) | Precision |    Recall |
-| ------------------------------------- | -------------: | ----------: | --------: | --------: |
-| `yolov8x-pose` (pretrained annotator) |          0.306 |       0.310 |     0.308 |     0.683 |
-| **`yolov8n-pose` (fine-tuned)**       |      **0.512** |   **0.618** | **0.479** | **0.720** |
 
-**Takeaway:** both `n-pose` and `s-pose` improve strongly; **`s-pose` edges out `n-pose`** on this dataset.
+**Gain:** **+31.8 pts** OKS mAP50-95 after fine-tuning.
 
 ---
 
 ### 4.3 Training Curves
 
-> Place the images below in your repo’s `assets/` folder and keep these links.
 
 **Detector (fine-tuned `yolov8n`)**
 
-* ![train/box\_loss](assets/det_train_box_loss.png)
-* ![train/cls\_loss](assets/det_train_cls_loss.png)
-* ![train/dfl\_loss](assets/det_train_dfl_loss.png)
-* ![metrics/precision(B)](assets/det_val_precision.png)
-* ![metrics/recall(B)](assets/det_val_recall.png)
-* ![metrics/mAP50(B)](assets/det_val_map50.png)
-* ![metrics/mAP50-95(B)](assets/det_val_map5095.png)
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/1a6e0ff4-8c98-4ba5-a73e-c868c5606897" />
+
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/ca77c9d6-9a06-4ea7-bf36-ffceb90c5fac" />
+
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/e8cbecdf-df13-46f4-adeb-f25f6e046bad" />
+
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/028af8a7-fa5a-4a14-a94c-9e89adfbc85f" />
+
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/4076b27d-6425-47e9-8cbc-b97b3196d012" />
+
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/b5dd7e81-43fb-4ea0-99e0-6b665f9ff62e" />
+
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/dda6ba78-d2b8-41fd-a5bf-3e890c5210a0" />
+
 
 **Pose (fine-tuned `yolov8s-pose`)**
 
-* ![train/box\_loss](assets/pose_train_box_loss.png)
-* ![train/kobj\_loss](assets/pose_train_kobj_loss.png)
-* ![metrics/mAP50(B)](assets/pose_val_map50.png)
-* ![metrics/mAP50-95(B)](assets/pose_val_map5095.png)
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/5c829e86-f710-42b4-99a4-c6933cb50bb0" />
 
-One-liner reads:
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/408525a8-754d-48ef-9ef8-689d7d0c494e" />
+
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/02f4ff9b-3f1c-48f5-ad5c-3bf05a886e60" />
+
+* <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/8ebe7f89-4bb0-4548-ad1b-0c2e15382c58" />
+
+
 
 * Losses **decrease** steadily → healthy optimization.
 * **Val mAP/recall** increase epoch-by-epoch and stabilize near the end.
@@ -172,13 +172,6 @@ One-liner reads:
 
 ---
 
-### 4.4 Speed
-
-* Detector (`y8n` fine-tuned) @ 640 on T4: **30.5 ± 29.9 ms/image**.
-* Pose (`y8s-pose` fine-tuned) @ 640 on T4: **~9–15 ms/image** in validation logs.
-* Suitable for near real-time with modest batching.
-
----
 
 ## 5. Discussion
 
@@ -186,15 +179,6 @@ One-liner reads:
 * **Detector vs Pose:** The detector is production-ready (high precision/recall). Pose quality is the main driver for action probabilities; the fine-tuned `yolov8s-pose` best localizes hands/feet → better kick/punch cues.
 * **Explainability:** Action scores come from transparent pose features (distances, heights, velocities) + EMA smoothing.
 * **Prediction horizon:** Constant-velocity pose forecasts look clean for ≲2–3 frames; longer horizons need temporal learning.
-
----
-
-## 6. Limitations
-
-* **Pseudo-labels ≠ perfect GT:** annotator errors propagate to the student model.
-* **Single-class detector:** only `person`; no explicit glove/foot instances.
-* **Heuristic actions:** not end-to-end trained; edge cases (feints, partial views) can be confused.
-* **Small val sets:** 50–60 images → higher variance; consider k-fold or more frames.
 
 ---
 
@@ -207,77 +191,7 @@ One-liner reads:
 
 **Data & training**
 
-* Add `flip_idx` to `person_pose.yaml` for better left/right invariance.
 * Sports-aware augmentations: **motion blur**, random occluders (rope/ref), light flares.
 * Increase input size (e.g., **768/960**) for finer wrist/ankle detail (trade speed).
 * **Self-training loop:** re-label extra frames with your fine-tuned pose model and keep high-confidence joints.
 
-**System**
-
-* StrongSORT + re-ID embeddings to reduce ID switches.
-* TensorRT export for sub-10 ms detector inference on supported GPUs.
-
----
-
-## 8. How to Reproduce
-
-**Colab prerequisites**
-
-```python
-BASE = "/content/drive/MyDrive/DS5216"
-# Mount Drive, create folders:
-# data/person_dataset, data/pose_dataset, outputs, exp_* as above
-!pip -q install ultralytics==8.3.34 opencv-python-headless==4.10.0.84
-```
-
-**Steps**
-
-1. **Extract frames** (~20 per video) into `pose_dataset/images/all` and `person_dataset/images/all`.
-2. **Auto-label persons** (detector) with YOLO and write YOLO txt labels.
-3. **Auto-label keypoints** (pose) with `yolov8x-pose` → YOLO-pose txt (`kpt_shape: [17,3]`).
-4. **Split 80/20** into `images/{train,val}` and `labels/{train,val}`; write `person.yaml` & `person_pose.yaml`.
-5. **Fine-tune**
-
-   * Detector: `yolov8n.pt` → 20 epochs @ 640.
-   * Pose: `yolov8s-pose.pt` → 20 epochs @ 640.
-6. **Validate** both on the val split; collect **mAP / OKS mAP / precision / recall**.
-7. **Run the pipeline** (detect → pose → probabilities → dashed pose prediction).
-8. **Export figures** and place them in `assets/` to match the links in this README.
-
----
-
-## Appendix: Quick Performance Summary
-
-**Player Detection @ 640**
-
-* `yolov8n.pt`: mAP50-95 **0.744**, Precision **0.920**, Recall **0.807**
-* `best.pt` (fine-tuned): mAP50-95 **0.848**, Precision **0.924**, Recall **0.975**, **~30.5 ms/img**
-
-**Pose (Keypoints) – OKS**
-
-* `y8s_pose_pretrained`: **0.204** OKS mAP50-95
-* **`y8s_pose_finetuned`: 0.522** OKS mAP50-95
-* (`y8n-pose` fine-tuned earlier: **0.512** OKS mAP50-95)
-
----
-
-### Assets to add (rename your PNGs to these)
-
-```
-assets/
-  det_train_box_loss.png
-  det_train_cls_loss.png
-  det_train_dfl_loss.png
-  det_val_precision.png
-  det_val_recall.png
-  det_val_map50.png
-  det_val_map5095.png
-  pose_train_box_loss.png
-  pose_train_kobj_loss.png
-  pose_val_map50.png
-  pose_val_map5095.png
-```
-
----
-
-**Contact**: For any reproducibility questions or to extend with Transformers/GRU forecasting, open an issue in the repo. 💬
