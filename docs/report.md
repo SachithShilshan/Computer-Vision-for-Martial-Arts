@@ -63,15 +63,15 @@ exp_pose_train/, exp_pose_eval/
 
 * Metrics: **OKS mAP@50-95** (primary), **OKS mAP@50**, plus precision/recall when available.
 
- ![yolov8s_video_1_pose_frame26](https://github.com/user-attachments/assets/12bf9e68-06d1-4a3f-b75d-6b2eb28e4832)
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/12bf9e68-06d1-4a3f-b75d-6b2eb28e4832" />
 
- ![yolov8s_video_2_pose_frame85](https://github.com/user-attachments/assets/144776d9-72d8-460d-9abd-d245ba3e94a2)
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/144776d9-72d8-460d-9abd-d245ba3e94a2" />
  
- ![yolov8s_video_3_pose_frame98](https://github.com/user-attachments/assets/01a0d937-1ce1-44ae-b040-b53441394c0a)
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/01a0d937-1ce1-44ae-b040-b53441394c0a" />
 
- ![yolov8s_video_4_pose_frame40](https://github.com/user-attachments/assets/f5a8a76e-1cb1-42ce-bcf9-7675641496d8)
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/f5a8a76e-1cb1-42ce-bcf9-7675641496d8" />
 
- ![yolov8s_video_5_pose_frame62](https://github.com/user-attachments/assets/738b466a-20e5-4d12-96b5-6ec2c8224b0a)
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/738b466a-20e5-4d12-96b5-6ec2c8224b0a" />
 
 
 
@@ -90,7 +90,7 @@ exp_pose_train/, exp_pose_eval/
   * bone-length constraint.
     Predicted pose is drawn as a **dashed skeleton**.
 
-![tri_video_4_overlay_ss_03_f000040](https://github.com/user-attachments/assets/a4c804da-284c-4641-9c22-a5ef82125b83)
+![tri_video_4_overlay_ss_03_f000040](https://github.com/user-attachments/assets/a4c804da-284c-4641-9c22-a5ef82125b83" />
 
 ---
 
