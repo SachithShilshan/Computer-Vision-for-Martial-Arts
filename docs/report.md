@@ -10,7 +10,9 @@
 
 ## 1. Introduction
 
+
 This project analyzes martial-arts footage to track fighters, draw pose skeletons, show **kick/punch/block** probabilities, and render a **dashed prediction** of the next pose.
+
 ---
 
 ## 2. Dataset Preparation
