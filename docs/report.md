@@ -90,7 +90,7 @@ exp_pose_train/, exp_pose_eval/
   * bone-length constraint.
     Predicted pose is drawn as a **dashed skeleton**.
 
-![tri_video_4_overlay_ss_03_f000040](https://github.com/user-attachments/assets/a4c804da-284c-4641-9c22-a5ef82125b83" />
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/a4c804da-284c-4641-9c22-a5ef82125b83" />
 
 ---
 
@@ -177,7 +177,7 @@ Output table
 
 ## 5. Discussion
 
-* **Why fine-tune:** Pretrained models struggle with fast motion, occlusion, ring ropes, and gloves. **Short domain fine-tuning** yields substantial gains, especially **recall** for detection and **OKS mAP** for keypoints.
+* **fine-tune:** Pretrained models struggle with fast motion, occlusion, ring ropes, and gloves. **Short domain fine-tuning** yields substantial gains, especially **recall** for detection and **OKS mAP** for keypoints.
 * **Detector vs Pose:** The detector is production-ready (high precision/recall). Pose quality is the main driver for action probabilities; the fine-tuned `yolov8s-pose` best localizes hands/feet → better kick/punch cues.
 * **Explainability:** Action scores come from transparent pose features (distances, heights, velocities) + EMA smoothing.
 * **Prediction horizon:** Constant-velocity pose forecasts look clean for ≲2–3 frames; longer horizons need temporal learning.
