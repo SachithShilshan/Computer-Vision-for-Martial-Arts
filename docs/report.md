@@ -48,13 +48,13 @@ exp_pose_train/, exp_pose_eval/
 * **Fine-tuned:** `yolov8n` trained **20 epochs @ 640** on the `person_dataset`.
 * Metrics: **mAP@50**, **mAP@50-95**, **precision**, **recall** on the same val split.
 
-![yolo8n_video_1_frame26](https://github.com/user-attachments/assets/180aef20-29bb-4ffb-b093-56cc81c28f9b)
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/180aef20-29bb-4ffb-b093-56cc81c28f9b" />
 
-![yolo8n_video_3_frame32](https://github.com/user-attachments/assets/a6a74815-451c-412a-a961-a4742749bed0)
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/a6a74815-451c-412a-a961-a4742749bed0" />
 
-![yolo8n_video_4_frame61](https://github.com/user-attachments/assets/d36c48b6-f354-45c2-9fe4-85797563b979)
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/d36c48b6-f354-45c2-9fe4-85797563b979" />
 
-![yolo8n_video_5_frame125](https://github.com/user-attachments/assets/68a09e04-7799-4f80-b6ce-a5591ddcd558)
+<img width="640" height="480" alt="image" src= "https://github.com/user-attachments/assets/68a09e04-7799-4f80-b6ce-a5591ddcd558" />
 
 ### 3.2 Pose (Keypoint) Detection (YOLOv8-pose)
 
