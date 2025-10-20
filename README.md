@@ -17,10 +17,11 @@ This repo contains the deliverables for **Player Tracking in Sports Videos**.
 ```
 
 ## Dataset
-Add your dataset links (YouTube or public sources) here:
-- [ ] Link 1
-- [ ] Link 2
-- [ ] Link 3
+dataset links :
+- [ ] [All Data ](https://drive.google.com/drive/folders/1OAk4U-liRjG5RLTXgNsKn1s9q4S7VnNi?usp=sharing)
+- [ ] [Row Data ](https://drive.google.com/drive/folders/1M8zBDoIjP2Abgsp5Hjq76BNfJfuIZG72?usp=sharing)
+- [ ] [Output ](https://drive.google.com/drive/folders/1EkRYDmQhN9D9a-RzwAsibscXGDfhie8N?usp=sharing)
+
 
 > Each clip should be 5–10 seconds per the assignment spec.
 
