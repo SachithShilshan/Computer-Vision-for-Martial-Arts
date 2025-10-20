@@ -1,4 +1,4 @@
-# Computer Vision for Fighter Pose Analysis and Action Recognition
+# Fighters Pose Analysis and Action Recognition
 
 **Author:** Sachith Shilshan • **Course:** DS5216
 
