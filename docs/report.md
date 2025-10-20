@@ -7,28 +7,6 @@
 
 ---
 
-## Contents
-
-* [1. Introduction](#1-introduction)
-* [2. Dataset Preparation](#2-dataset-preparation)
-* [3. Methods](#3-methods)
-
-  * [3.1 Player Detection (YOLOv8)](#31-player-detection-yolov8)
-  * [3.2 Pose (Keypoint) Detection (YOLOv8-pose)](#32-pose-keypoint-detection-yolov8pose)
-  * [3.3 Action Likelihoods & Short-term Pose Prediction](#33-action-likelihoods--short-term-pose-prediction)
-* [4. Performance (Main)](#4-performance-main)
-
-  * [4.1 Player Detection Results](#41-player-detection-results)
-  * [4.2 Pose (Keypoint) Detection Results](#42-pose-keypoint-detection-results)
-  * [4.3 Training Curves](#43-training-curves)
-  * [4.4 Speed](#44-speed)
-* [5. Discussion](#5-discussion)
-* [6. Limitations](#6-limitations)
-* [7. Improvements & Future Work](#7-improvements--future-work)
-* [8. How to Reproduce](#8-how-to-reproduce)
-
----
-
 ## 1. Introduction
 
 This project analyzes martial-arts footage to track two fighters, draw pose skeletons, show **kick/punch/block** probabilities, and render a **dashed prediction** of the next pose. The system is designed to be **fast, explainable, and reproducible** in Google Colab with Google Drive storage.
@@ -68,12 +46,32 @@ exp_pose_train/, exp_pose_eval/
 * **Fine-tuned:** `yolov8n` trained **20 epochs @ 640** on the `person_dataset`.
 * Metrics: **mAP@50**, **mAP@50-95**, **precision**, **recall** on the same val split.
 
+![yolo8n_video_1_frame26](https://github.com/user-attachments/assets/180aef20-29bb-4ffb-b093-56cc81c28f9b)
+
+![yolo8n_video_3_frame32](https://github.com/user-attachments/assets/a6a74815-451c-412a-a961-a4742749bed0)
+
+![yolo8n_video_4_frame61](https://github.com/user-attachments/assets/d36c48b6-f354-45c2-9fe4-85797563b979)
+
+![yolo8n_video_5_frame125](https://github.com/user-attachments/assets/68a09e04-7799-4f80-b6ce-a5591ddcd558)
+
 ### 3.2 Pose (Keypoint) Detection (YOLOv8-pose)
 
 * **pretrained:** `yolov8s-pose.pt` 
 * **Fine-tuned models:** `yolov8s-pose.pt` 
 
 * Metrics: **OKS mAP@50-95** (primary), **OKS mAP@50**, plus precision/recall when available.
+
+ ![yolov8s_video_1_pose_frame26](https://github.com/user-attachments/assets/12bf9e68-06d1-4a3f-b75d-6b2eb28e4832)
+
+ ![yolov8s_video_2_pose_frame85](https://github.com/user-attachments/assets/144776d9-72d8-460d-9abd-d245ba3e94a2)
+ 
+ ![yolov8s_video_3_pose_frame98](https://github.com/user-attachments/assets/01a0d937-1ce1-44ae-b040-b53441394c0a)
+
+ ![yolov8s_video_4_pose_frame40](https://github.com/user-attachments/assets/f5a8a76e-1cb1-42ce-bcf9-7675641496d8)
+
+ ![yolov8s_video_5_pose_frame62](https://github.com/user-attachments/assets/738b466a-20e5-4d12-96b5-6ec2c8224b0a)
+
+
 
 ### 3.3 Action Likelihoods & Short-term Pose Prediction
 
@@ -89,6 +87,8 @@ exp_pose_train/, exp_pose_eval/
   * head blending,
   * bone-length constraint.
     Predicted pose is drawn as a **dashed skeleton**.
+
+![tri_video_4_overlay_ss_03_f000040](https://github.com/user-attachments/assets/a4c804da-284c-4641-9c22-a5ef82125b83)
 
 ---
 
