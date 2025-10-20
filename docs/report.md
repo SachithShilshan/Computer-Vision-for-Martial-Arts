@@ -2,20 +2,20 @@
 
 **Author:** Sachith Shilshan • **Course:** DS5216
 
-> A compact pipeline to (1) detect fighters, (2) estimate body keypoints, (3) output per-frame **kick/punch/block** probabilities, and (4) overlay a short-term **predicted (dashed) pose**.
-> The emphasis of this report is **Performance** (accuracy/precision/recall/mAP & loss curves), followed by discussion, limitations, and improvements.
+> 
+(1) detect fighters, (2) estimate body keypoints, (3) output per-frame **kick/punch/block** probabilities, and (4) overlay a short-term **predicted (dashed) pose**.
+> The emphasis of this report is **Performance** (accuracy/precision/recall/mAP & loss curves), followed by discussion and improvements.
 
 ---
 
 ## 1. Introduction
 
-This project analyzes martial-arts footage to track two fighters, draw pose skeletons, show **kick/punch/block** probabilities, and render a **dashed prediction** of the next pose. The system is designed to be **fast, explainable, and reproducible** in Google Colab with Google Drive storage.
-
+This project analyzes martial-arts footage to track fighters, draw pose skeletons, show **kick/punch/block** probabilities, and render a **dashed prediction** of the next pose.
 ---
 
 ## 2. Dataset Preparation
 
-This project uses a **custom dataset created from 6 martial arts video clips** featuring **karate, boxing, kickboxing,..** with two fighters per match. The videos include a mix of movement dynamics 
+This project uses a ** dataset created from 6 martial arts video clips** featuring **karate, boxing, kickboxing, UFC, ..** with fighters. The videos include a mix of movement dynamics.
 
 Player detection dataset and Pose dataset Split 80/20 for train/val.
 
